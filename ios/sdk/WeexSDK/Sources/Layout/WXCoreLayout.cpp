@@ -132,6 +132,12 @@ namespace WeexCore {
         height = containingBlockHeight -
             mCssStyle->mStylePosition.getPosition(kPositionEdgeTop) -
             mCssStyle->mStylePosition.getPosition(kPositionEdgeBottom);
+        if (!isnan(mCssStyle->mMargin.getMargin(kMarginTop))) {
+          height -= mCssStyle->mMargin.getMargin(kMarginTop);
+        }
+        if (!isnan(mCssStyle->mMargin.getMargin(kMarginBottom))) {
+          height -= mCssStyle->mMargin.getMargin(kMarginBottom);
+        }
         setHeightMeasureMode(kExactly);
         sizeChanged = true;
       }
